@@ -482,4 +482,44 @@ document.addEventListener('DOMContentLoaded', () => {
         goToTestSlide(0);
         startTestAutoSlide();
     }
+
+    // ----------------------------------------------------
+    // Pricing Section Billing Toggle
+    // ----------------------------------------------------
+    const billingToggle = document.getElementById('billing-toggle');
+    const billingMonthly = document.getElementById('billing-monthly');
+    const billingYearly = document.getElementById('billing-yearly');
+    const priceVals = document.querySelectorAll('.price-val');
+    
+    if (billingToggle && billingMonthly && billingYearly && priceVals.length > 0) {
+        billingToggle.addEventListener('click', () => {
+            const isYearly = billingToggle.classList.toggle('active');
+            billingMonthly.classList.toggle('active', !isYearly);
+            billingYearly.classList.toggle('active', isYearly);
+            
+            priceVals.forEach(val => {
+                // Smooth transition fade-out and slide-up
+                val.style.opacity = '0';
+                val.style.transform = 'translateY(-6px)';
+                
+                setTimeout(() => {
+                    const newPrice = isYearly ? val.getAttribute('data-yearly') : val.getAttribute('data-monthly');
+                    val.textContent = `$${newPrice}`;
+                    val.style.opacity = '1';
+                    val.style.transform = 'translateY(0)';
+                }, 150);
+            });
+        });
+        
+        // Add click listener to the labels too for better UX
+        const setBillingCycle = (toYearly) => {
+            const isActive = billingToggle.classList.contains('active');
+            if (toYearly !== isActive) {
+                billingToggle.click();
+            }
+        };
+        
+        billingMonthly.addEventListener('click', () => setBillingCycle(false));
+        billingYearly.addEventListener('click', () => setBillingCycle(true));
+    }
 });

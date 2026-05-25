@@ -760,21 +760,31 @@
             <span class="section-tagline">Curated Membership</span>
             <h2>Begin your <span class="highlight-serif-italic">wellness journey</span></h2>
         </div>
+
+        <!-- Interactive Billing Toggle -->
+        <div class="billing-toggle-container" data-aos="fade-up" data-aos-delay="100">
+            <span class="toggle-label active" id="billing-monthly">Monthly Billing</span>
+            <button class="billing-toggle-btn" id="billing-toggle" aria-label="Toggle billing cycle">
+                <span class="toggle-knob"></span>
+            </button>
+            <span class="toggle-label" id="billing-yearly">Yearly Billing <span class="discount-badge">Save 20%</span></span>
+        </div>
         
         <div class="row plans-grid">
             <!-- Plan 1 -->
             <div class="plan-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
                 <div class="plan-header">
+                    <span class="plan-meta-tag">Gourmet Starter</span>
                     <h3>The Flex Tier</h3>
-                    <p class="plan-price">$19 <span>/ meal</span></p>
+                    <p class="plan-price"><span class="price-val" data-monthly="19" data-yearly="15">$19</span> <span class="price-period">/ meal</span></p>
                     <p class="price-meal">Perfect for sampling gourmet wellness</p>
                 </div>
                 <div class="plan-body">
                     <ul>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>1 chef-crafted meal per week</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Full access to rotating menu</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Order 24/7 via mobile app</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Complimentary premium delivery</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>1 chef-crafted meal per week</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Full access to rotating menu</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Order 24/7 via mobile app</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Complimentary premium delivery</span></li>
                     </ul>
                 </div>
                 <div class="plan-footer">
@@ -786,16 +796,17 @@
             <div class="plan-card plan-card--featured" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
                 <div class="featured-badge">Best Value</div>
                 <div class="plan-header">
+                    <span class="plan-meta-tag">Daily Premium</span>
                     <h3>The Signature Tier</h3>
-                    <p class="plan-price">$199 <span>/ month</span></p>
+                    <p class="plan-price"><span class="price-val" data-monthly="199" data-yearly="159">$199</span> <span class="price-period">/ month</span></p>
                     <p class="price-meal">Our most popular option for professionals</p>
                 </div>
                 <div class="plan-body">
                     <ul>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>5 premium meals per week</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Priority menu customizations</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Free scheduled delivery slots</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Complimentary seasonal pairings</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>5 premium meals per week</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Priority menu customizations</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Free scheduled delivery slots</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Complimentary seasonal pairings</span></li>
                     </ul>
                 </div>
                 <div class="plan-footer">
@@ -806,16 +817,17 @@
             <!-- Plan 3 -->
             <div class="plan-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
                 <div class="plan-header">
+                    <span class="plan-meta-tag">VIP Elite</span>
                     <h3>The Elite Tier</h3>
-                    <p class="plan-price">$399 <span>/ month</span></p>
+                    <p class="plan-price"><span class="price-val" data-monthly="399" data-yearly="319">$399</span> <span class="price-period">/ month</span></p>
                     <p class="price-meal">Bespoke lifestyle transformation</p>
                 </div>
                 <div class="plan-body">
                     <ul>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Daily gourmet meals (24/7)</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Dedicated personal culinary liaison</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Guaranteed priority under-20m delivery</li>
-                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Exclusive access to limited recipes</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Daily gourmet meals (24/7)</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Dedicated personal culinary liaison</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Guaranteed priority under-20m delivery</span></li>
+                        <li><ion-icon class="icon-small-check" name="checkmark"></ion-icon><span>Exclusive access to limited recipes</span></li>
                     </ul>
                 </div>
                 <div class="plan-footer">
