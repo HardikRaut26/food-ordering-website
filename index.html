@@ -845,41 +845,79 @@
         </div>
         
         <div class="row" data-aos="fade-up" data-aos-duration="1000">
-            <div class="form-container">
-                <form action="#" method="POST" class="contact-form" id="contact-form-element">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+            <div class="concierge-card">
+                <!-- Left side: Visual & Info Panel -->
+                <div class="concierge-info-panel">
+                    <div class="info-panel-overlay">
+                        <h3>Your Bespoke Menu Awaits</h3>
+                        <p>Consult with our culinary curators. Let us design a subscription plan tailored exactly to your lifestyle, dietary goals, or food preferences.</p>
+                        
+                        <ul class="concierge-benefits">
+                            <li>
+                                <ion-icon name="ribbon-outline"></ion-icon>
+                                <div>
+                                    <h4>Michelin-Inspired Crafting</h4>
+                                    <p>Recipes curated by culinary experts for premium taste and presentation.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <ion-icon name="nutrition-outline"></ion-icon>
+                                <div>
+                                    <h4>Dietary Customization</h4>
+                                    <p>Tailored macro splits, allergen-free preparation, and organic-only crops.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <ion-icon name="sparkles-outline"></ion-icon>
+                                <div>
+                                    <h4>100% Complimentary Consult</h4>
+                                    <p>No commitment required. Speak with our chefs to craft your dream menu.</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="find-us">How did you find us?</label>
-                        <select name="find-us" id="find-us">
-                            <option value="friends">Friends</option>
-                            <option value="search">Search Engine</option>
-                            <option value="instagram">Instagram</option>
-                            <option value="facebook">Facebook</option>
-                            <option value="others">Other Channels</option>
-                        </select>
-                    </div>
-                    <div class="form-group checkbox-group">
-                        <label for="news">Newsletter?</label>
-                        <div class="checkbox-wrapper">
-                            <input type="checkbox" name="news" id="news" checked>
-                            <span>Yes, sign me up for exclusive gourmet tips!</span>
+                </div>
+                
+                <!-- Right side: Form Panel -->
+                <div class="concierge-form-panel">
+                    <form action="#" method="POST" class="contact-form" id="contact-form-element">
+                        <div class="form-group">
+                            <label for="name"><ion-icon name="person-outline"></ion-icon> Name</label>
+                            <input type="text" name="name" id="name" placeholder="Your Name" required>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="feedback">Dietary preferences or message</label>
-                        <textarea name="feedback" id="feedback" cols="30" rows="5" placeholder="Tell us about your culinary goals or dietary needs..."></textarea>
-                    </div>
-                    <div class="form-group button-group">
-                        <input type="submit" name="send-us" id="send-us" value="Consult Our Chefs">
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label for="email"><ion-icon name="mail-outline"></ion-icon> Email</label>
+                            <input type="email" name="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="find-us"><ion-icon name="compass-outline"></ion-icon> How did you find us?</label>
+                            <div class="select-wrapper">
+                                <select name="find-us" id="find-us">
+                                    <option value="friends">Friends</option>
+                                    <option value="search">Search Engine</option>
+                                    <option value="instagram">Instagram</option>
+                                    <option value="facebook">Facebook</option>
+                                    <option value="others">Other Channels</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="news" id="news" checked>
+                                <label for="news">Sign me up for exclusive gourmet tips!</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="feedback"><ion-icon name="chatbubble-ellipses-outline"></ion-icon> Culinary Goals &amp; Preferences</label>
+                            <textarea name="feedback" id="feedback" cols="30" rows="4" placeholder="e.g. Low-carb, gluten-free, high-protein for training..."></textarea>
+                        </div>
+                        <div class="form-group button-group">
+                            <button type="submit" name="send-us" id="send-us" class="btn btn-full">
+                                Consult Our Chefs <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

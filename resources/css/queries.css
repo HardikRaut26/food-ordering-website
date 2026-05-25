@@ -245,6 +245,21 @@
     .plan-card--featured:hover {
         transform: scale(1.05) translateY(-6px);
     }
+
+    /* Concierge split layout stack */
+    .concierge-card {
+        flex-direction: column;
+    }
+    
+    .concierge-info-panel,
+    .concierge-form-panel {
+        flex: 0 0 100%;
+    }
+    
+    .info-panel-overlay,
+    .concierge-form-panel {
+        padding: 5.6rem 4rem;
+    }
     
     /* Footer wraps */
     .footer-grid {
@@ -353,8 +368,26 @@
         width: 100%;
     }
     
-    .form-container {
-        padding: 2.4rem;
+    .info-panel-overlay,
+    .concierge-form-panel {
+        padding: 3.6rem 2.4rem;
+    }
+    
+    .info-panel-overlay h3 {
+        font-size: 2.6rem;
+        margin-bottom: 1.6rem;
+    }
+
+    .info-panel-overlay p {
+        margin-bottom: 2.8rem;
+    }
+
+    .concierge-benefits {
+        gap: 2rem;
+    }
+
+    .concierge-benefits li {
+        gap: 1.4rem;
     }
     
     .floating-badge {

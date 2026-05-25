@@ -1974,21 +1974,101 @@ cite {
 }
 
 /* ==========================================================================
-   Contact Form Section
+   Contact Form Section (Concierge Split Layout)
    ========================================================================== */
 
 .section-form {
-    background-color: var(--white);
+    background: linear-gradient(to bottom, var(--neutral-light) 0%, #ffffff 100%);
+    position: relative;
 }
 
-.form-container {
-    max-width: 70rem;
-    margin: 0 auto;
-    background-color: var(--neutral-light);
-    border: 1px solid var(--neutral-border);
-    padding: 4.8rem;
+.concierge-card {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--white);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--neutral-border);
+    width: 100%;
+    margin-top: 6.4rem;
+}
+
+.concierge-info-panel {
+    flex: 0 0 50%;
+    background-image: url('img/concierge_bg.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.info-panel-overlay {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.8) 100%);
+    padding: 6.4rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--white);
+}
+
+.info-panel-overlay h3 {
+    font-size: 3.2rem;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    line-height: 1.25;
+}
+
+.info-panel-overlay p {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 4rem;
+}
+
+.concierge-benefits {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+}
+
+.concierge-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.concierge-benefits li ion-icon {
+    font-size: 2.4rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    background-color: rgba(255, 95, 56, 0.1);
+    padding: 0.8rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 95, 56, 0.2);
+}
+
+.concierge-benefits li h4 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+}
+
+.concierge-benefits li p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+.concierge-form-panel {
+    flex: 0 0 50%;
+    padding: 6.4rem;
+    background-color: var(--white);
 }
 
 .contact-form {
@@ -2000,14 +2080,22 @@ cite {
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 1rem;
 }
 
 .form-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     font-family: var(--font-body);
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--neutral-title);
+}
+
+.form-group label ion-icon {
+    color: var(--primary);
+    font-size: 1.8rem;
 }
 
 .form-group input[type=text],
@@ -2018,10 +2106,10 @@ cite {
     font-size: 1.6rem;
     color: var(--neutral-title);
     width: 100%;
-    padding: 1.2rem 1.6rem;
+    padding: 1.4rem 1.8rem;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--neutral-border);
-    background-color: var(--white);
+    border: 1.5px solid var(--neutral-border);
+    background-color: var(--neutral-light);
     transition: all var(--transition-fast);
 }
 
@@ -2031,46 +2119,90 @@ cite {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
+    background-color: var(--white);
     box-shadow: 0 0 0 4px rgba(255, 95, 56, 0.15);
 }
 
 .form-group textarea {
     resize: vertical;
-    min-height: 12rem;
+    min-height: 11rem;
 }
 
-/* Checkbox alignment */
+/* Custom Dropdown select wrapper arrow */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper::after {
+    content: '\25BE'; /* Downwards triangles arrow */
+    font-size: 2rem;
+    color: var(--neutral-body);
+    position: absolute;
+    right: 1.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.form-group select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 4.5rem; /* make room for custom arrow */
+}
+
+/* Checkbox design */
 .checkbox-group {
     flex-direction: row;
     align-items: center;
+    padding: 0.4rem 0;
 }
 
 .checkbox-wrapper {
     display: flex;
     align-items: center;
-    gap: 1rem;
-}
-
-.form-group input[type=checkbox] {
-    height: 2rem;
-    width: 2rem;
-    accent-color: var(--primary);
+    gap: 1.2rem;
     cursor: pointer;
 }
 
-.checkbox-wrapper span {
+.checkbox-wrapper label {
     font-size: 1.5rem;
+    font-weight: 500;
     color: var(--neutral-body);
+    cursor: pointer;
+    margin: 0;
+}
+
+.form-group input[type=checkbox] {
+    height: 2.2rem;
+    width: 2.2rem;
+    accent-color: var(--primary);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
 }
 
 .button-group {
     margin-top: 1.2rem;
 }
 
-.button-group input[type=submit] {
+.button-group .btn {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
     font-size: 1.8rem;
     padding: 1.6rem;
+}
+
+.button-group .btn ion-icon {
+    font-size: 1.8rem;
+    transition: transform var(--transition-fast);
+}
+
+.button-group .btn:hover ion-icon {
+    transform: translateX(4px);
 }
 
 /* ==========================================================================
