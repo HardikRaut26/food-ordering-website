@@ -57,8 +57,16 @@
     
     /* Shift 4-column grids to 2-columns */
     .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+        --visible-cards: 2;
         gap: 2.4rem;
+    }
+    
+    .features-carousel-btn.prev-btn {
+        left: -1.2rem;
+    }
+    
+    .features-carousel-btn.next-btn {
+        right: -1.2rem;
     }
     
     .meals-carousel-row::before,
@@ -251,7 +259,15 @@
     
     /* Single columns for everything */
     .features-grid {
-        grid-template-columns: 1fr;
+        --visible-cards: 1;
+    }
+    
+    .features-carousel-btn.prev-btn {
+        left: 0.5rem;
+    }
+    
+    .features-carousel-btn.next-btn {
+        right: 0.5rem;
     }
     
     .meals-carousel-row::before,
