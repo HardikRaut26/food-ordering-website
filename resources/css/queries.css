@@ -75,8 +75,16 @@
     }
     
     .cities-grid {
-        grid-template-columns: repeat(2, 1fr);
+        --visible-cities: 2;
         gap: 2.4rem;
+    }
+    
+    .cities-carousel-btn.prev-btn {
+        left: -1.2rem;
+    }
+    
+    .cities-carousel-btn.next-btn {
+        right: -1.2rem;
     }
     
     /* Shift 3-column pricing to 3-columns but stack if needed, or slightly scale */
@@ -280,7 +288,19 @@
     }
     
     .cities-grid {
-        grid-template-columns: 1fr;
+        --visible-cities: 1;
+    }
+    
+    .cities-carousel-btn.prev-btn {
+        left: 0.5rem;
+    }
+    
+    .cities-carousel-btn.next-btn {
+        right: 0.5rem;
+    }
+    
+    .city-details {
+        padding: 2.4rem;
     }
     
     .hero-text-box h1 {

@@ -218,4 +218,141 @@ document.addEventListener('DOMContentLoaded', () => {
         goToSlide(0);
         startAutoSlide();
     }
+
+    // ----------------------------------------------------
+    // Cities Section Carousel
+    // ----------------------------------------------------
+    const citiesContainer = document.querySelector('.cities-carousel-container');
+    const citiesGrid = document.querySelector('.cities-grid');
+    const cityCards = document.querySelectorAll('.city-card');
+    const citiesPrevBtn = document.querySelector('.cities-carousel-btn.prev-btn');
+    const citiesNextBtn = document.querySelector('.cities-carousel-btn.next-btn');
+    const citiesDotsContainer = document.querySelector('.cities-carousel-dots');
+    
+    if (citiesGrid && cityCards.length > 0 && citiesPrevBtn && citiesNextBtn && citiesDotsContainer) {
+        let cityIdx = 0;
+        let cityInterval = null;
+        
+        // Helper to get active visible cards from CSS Variable
+        const getVisibleCitiesCount = () => {
+            return parseInt(getComputedStyle(citiesGrid).getPropertyValue('--visible-cities')) || 3;
+        };
+        
+        // Helper to get max index
+        const getMaxCityIdx = () => {
+            return Math.max(0, cityCards.length - getVisibleCitiesCount());
+        };
+        
+        // Render pagination dots dynamically
+        const renderCityDots = () => {
+            citiesDotsContainer.innerHTML = '';
+            const maxIdx = getMaxCityIdx();
+            const totalDots = maxIdx + 1;
+            
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === cityIdx) dot.classList.add('active');
+                dot.setAttribute('data-slide', i);
+                
+                dot.addEventListener('click', () => {
+                    goToCitySlide(i);
+                    resetCityAutoSlide();
+                });
+                
+                citiesDotsContainer.appendChild(dot);
+            }
+        };
+        
+        // Go to specific slide index
+        const goToCitySlide = (idx) => {
+            const maxIdx = getMaxCityIdx();
+            cityIdx = Math.min(Math.max(0, idx), maxIdx);
+            
+            // Calculate translation width
+            const cardWidth = cityCards[0].getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(citiesGrid).gap) || 32;
+            const translateOffset = cityIdx * (cardWidth + gap);
+            
+            citiesGrid.style.transform = `translateX(-${translateOffset}px)`;
+            
+            // Update active dot
+            const dots = citiesDotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === cityIdx) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            // Update buttons disable state
+            citiesPrevBtn.disabled = cityIdx === 0;
+            citiesNextBtn.disabled = cityIdx === maxIdx;
+        };
+        
+        // Event Listeners for Nav buttons
+        citiesPrevBtn.addEventListener('click', () => {
+            if (cityIdx > 0) {
+                goToCitySlide(cityIdx - 1);
+                resetCityAutoSlide();
+            }
+        });
+        
+        citiesNextBtn.addEventListener('click', () => {
+            const maxIdx = getMaxCityIdx();
+            if (cityIdx < maxIdx) {
+                goToCitySlide(cityIdx + 1);
+                resetCityAutoSlide();
+            }
+        });
+        
+        // Auto sliding functionality (4 seconds rotation)
+        const startCityAutoSlide = () => {
+            stopCityAutoSlide();
+            cityInterval = setInterval(() => {
+                const maxIdx = getMaxCityIdx();
+                if (cityIdx >= maxIdx) {
+                    goToCitySlide(0); // wrap around
+                } else {
+                    goToCitySlide(cityIdx + 1);
+                }
+            }, 4000);
+        };
+        
+        const stopCityAutoSlide = () => {
+            if (cityInterval) {
+                clearInterval(cityInterval);
+                cityInterval = null;
+            }
+        };
+        
+        const resetCityAutoSlide = () => {
+            startCityAutoSlide();
+        };
+        
+        // Pause auto-sliding on hover
+        citiesContainer.addEventListener('mouseenter', stopCityAutoSlide);
+        citiesContainer.addEventListener('mouseleave', startCityAutoSlide);
+        
+        // Recalculate slider alignment on window resize
+        let cityResizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(cityResizeTimeout);
+            cityResizeTimeout = setTimeout(() => {
+                // Adjust index if out of bounds on resize
+                const maxIdx = getMaxCityIdx();
+                if (cityIdx > maxIdx) {
+                    cityIdx = maxIdx;
+                }
+                renderCityDots();
+                goToCitySlide(cityIdx);
+            }, 100);
+        });
+        
+        // Initialize
+        renderCityDots();
+        goToCitySlide(0);
+        startCityAutoSlide();
+    }
 });
