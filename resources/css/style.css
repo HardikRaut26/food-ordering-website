@@ -1463,19 +1463,111 @@ header {
 .quote-icon {
     font-size: 4rem;
     color: var(--primary);
-    opacity: 0.3;
+    opacity: 0.25;
     position: absolute;
     top: 2rem;
     right: 2rem;
+    transition: all var(--transition-normal);
+}
+
+.testimonial-card:hover .quote-icon {
+    transform: scale(1.15) rotate(-10deg);
+    opacity: 0.65;
+}
+
+.testimonial-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.testimonial-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.test-tag {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.tag-lifestyle {
+    background-color: rgba(255, 95, 56, 0.12);
+    color: #ff8a6b;
+    border: 1px solid rgba(255, 95, 56, 0.25);
+}
+
+.tag-diet {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 0.4rem;
+    color: #fbbf24;
+    font-size: 1.5rem;
 }
 
 blockquote {
     font-size: 1.7rem;
-    line-height: 1.7;
+    line-height: 1.75;
     font-style: italic;
     color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 3.2rem;
+    margin-bottom: 2.4rem;
     flex-grow: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.favorite-dish-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 2.8rem;
+    font-size: 1.4rem;
+    align-self: flex-start;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.favorite-dish-badge ion-icon {
+    color: var(--primary);
+    font-size: 1.6rem;
+    transition: transform var(--transition-normal);
+}
+
+.favorite-dish-badge strong {
+    color: var(--white);
+    font-weight: 600;
+}
+
+.testimonial-card:hover .favorite-dish-badge {
+    background-color: rgba(255, 95, 56, 0.1);
+    border-color: rgba(255, 95, 56, 0.35);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(255, 95, 56, 0.15);
+}
+
+.testimonial-card:hover .favorite-dish-badge ion-icon {
+    transform: scale(1.2);
 }
 
 cite {
@@ -1485,12 +1577,41 @@ cite {
     font-style: normal;
 }
 
-cite img {
+.avatar-container {
+    position: relative;
     height: 4.8rem;
     width: 4.8rem;
+    flex-shrink: 0;
+}
+
+.avatar-container img {
+    height: 100%;
+    width: 100%;
     border-radius: 50%;
     border: 2px solid var(--primary);
     object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.testimonial-card:hover .avatar-container img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.verified-badge {
+    position: absolute;
+    bottom: -0.2rem;
+    right: -0.2rem;
+    background-color: var(--secondary);
+    color: var(--white);
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    border: 2px solid #1a2336; /* matches the dark glass card bg visually */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .cite-meta {

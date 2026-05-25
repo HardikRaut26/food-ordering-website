@@ -267,7 +267,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Go to specific slide index
         const goToCitySlide = (idx) => {
             const maxIdx = getMaxCityIdx();
-            cityIdx = Math.min(Math.max(0, idx), maxIdx);
+            
+            // Allow wrapping around infinitely
+            if (idx < 0) {
+                cityIdx = maxIdx;
+            } else if (idx > maxIdx) {
+                cityIdx = 0;
+            } else {
+                cityIdx = idx;
+            }
             
             // Calculate translation width
             const cardWidth = cityCards[0].getBoundingClientRect().width;
@@ -286,38 +294,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            // Update buttons disable state
-            citiesPrevBtn.disabled = cityIdx === 0;
-            citiesNextBtn.disabled = cityIdx === maxIdx;
+            // In a truly infinite loop carousel, next/prev buttons are never disabled
+            citiesPrevBtn.disabled = false;
+            citiesNextBtn.disabled = false;
         };
         
         // Event Listeners for Nav buttons
         citiesPrevBtn.addEventListener('click', () => {
-            if (cityIdx > 0) {
-                goToCitySlide(cityIdx - 1);
-                resetCityAutoSlide();
-            }
+            goToCitySlide(cityIdx - 1);
+            resetCityAutoSlide();
         });
         
         citiesNextBtn.addEventListener('click', () => {
-            const maxIdx = getMaxCityIdx();
-            if (cityIdx < maxIdx) {
-                goToCitySlide(cityIdx + 1);
-                resetCityAutoSlide();
-            }
+            goToCitySlide(cityIdx + 1);
+            resetCityAutoSlide();
         });
         
-        // Auto sliding functionality (4 seconds rotation)
+        // Auto sliding functionality (3 seconds rotation with infinite loop)
         const startCityAutoSlide = () => {
             stopCityAutoSlide();
             cityInterval = setInterval(() => {
-                const maxIdx = getMaxCityIdx();
-                if (cityIdx >= maxIdx) {
-                    goToCitySlide(0); // wrap around
-                } else {
-                    goToCitySlide(cityIdx + 1);
-                }
-            }, 4000);
+                goToCitySlide(cityIdx + 1);
+            }, 3000);
         };
         
         const stopCityAutoSlide = () => {
