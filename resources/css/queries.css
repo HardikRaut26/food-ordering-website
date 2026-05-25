@@ -1,0 +1,331 @@
+/* ==========================================================================
+   Responsive Breakpoints & Media Queries
+   ========================================================================== */
+
+/* --------------------------------------------------
+   1. Large Desktop / 4K / UHD Screens (1440px to 2560px+)
+   -------------------------------------------------- */
+@media only screen and (min-width: 1441px) {
+    html {
+        font-size: 70%; /* Scales up typography and layouts proportionally */
+    }
+    
+    .row {
+        max-width: 1400px;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    html {
+        font-size: 80%; /* Even larger scale for 4K screens (2560px) */
+    }
+    
+    .row {
+        max-width: 1600px;
+    }
+}
+
+/* --------------------------------------------------
+   2. Standard Desktop / Laptops (max-width: 1200px)
+   -------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+    html {
+        font-size: 56.25%; /* 9px base */
+    }
+
+    .row {
+        padding: 0 4rem;
+    }
+    
+    .hero-text-box {
+        margin-left: 4rem;
+    }
+}
+
+/* --------------------------------------------------
+   3. Small Tablets to Landscapes (max-width: 1024px)
+   -------------------------------------------------- */
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 50%; /* 8px base */
+    }
+    
+    .long-copy {
+        width: 85%;
+        margin-bottom: 4.8rem;
+    }
+    
+    /* Shift 4-column grids to 2-columns */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.4rem;
+    }
+    
+    .meals-carousel-row::before,
+    .meals-carousel-row::after {
+        width: 8rem;
+    }
+    
+    .cities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.4rem;
+    }
+    
+    /* Shift 3-column pricing to 3-columns but stack if needed, or slightly scale */
+    .plans-grid {
+        gap: 2rem;
+    }
+    
+    .plan-card--featured {
+        transform: scale(1.01);
+    }
+    
+    .plan-card--featured:hover {
+        transform: scale(1.01) translateY(-4px);
+    }
+}
+
+/* --------------------------------------------------
+   4. Portrait Tablets & Mobile Devices (max-width: 768px)
+   -------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+    section {
+        padding: 8rem 0;
+    }
+    
+    /* Mobile Navigation Burger Layout */
+    .mobile-nav-toggle {
+        display: block;
+        z-index: 1000;
+    }
+    
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(15, 23, 42, 0.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        gap: 3.6rem;
+        z-index: 999;
+        padding: 4rem;
+        transform: translateX(100%);
+        transition: transform var(--transition-normal);
+    }
+    
+    /* When active, show navbar slide-in */
+    .main-nav.nav-open {
+        display: flex;
+        transform: translateX(0);
+    }
+    
+    /* Toggle active icons styles */
+    .nav-open + .mobile-nav-toggle .menu-icon-open,
+    .main-nav.nav-open ~ .mobile-nav-toggle .menu-icon-open {
+        display: none;
+    }
+    
+    .nav-open + .mobile-nav-toggle .menu-icon-close,
+    .main-nav.nav-open ~ .mobile-nav-toggle .menu-icon-close {
+        display: block;
+    }
+    
+    .main-nav li a {
+        font-size: 2.2rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .main-nav li a.nav-cta {
+        padding: 1.4rem 3.6rem;
+        font-size: 2.2rem;
+    }
+    
+    /* Hero scaling */
+    .hero-text-box h1 {
+        font-size: 4.8rem;
+    }
+    
+    /* Steps columns stack */
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 6rem;
+    }
+    
+    .steps-image-box {
+        grid-row: 2; /* Move image below the steps */
+    }
+    
+    .phone-container {
+        max-width: 28rem;
+    }
+    
+    .badge-order-status {
+        left: -3rem;
+        transform: scale(0.85);
+    }
+    
+    .badge-rating {
+        right: -3rem;
+        transform: scale(0.85);
+    }
+    
+    .badge-delivery {
+        left: -2rem;
+        transform: scale(0.85);
+    }
+
+    @keyframes floatBadge1 {
+        0%, 100% { transform: translateY(0) scale(0.85); }
+        50% { transform: translateY(-0.6rem) scale(0.87); }
+    }
+
+    @keyframes floatBadge2 {
+        0%, 100% { transform: translateY(0) scale(0.85); }
+        50% { transform: translateY(0.6rem) scale(0.87); }
+    }
+
+    @keyframes floatBadge3 {
+        0%, 100% { transform: translateY(0) scale(0.85); }
+        50% { transform: translateY(-0.4rem) scale(0.87); }
+    }
+    
+    /* Testimonial columns stack */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 2.4rem;
+    }
+    
+    /* Pricing plans stack */
+    .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 48rem;
+        margin: 4.8rem auto 0 auto;
+        gap: 3.2rem;
+    }
+    
+    .plan-card--featured {
+        transform: scale(1.05);
+    }
+    
+    .plan-card--featured:hover {
+        transform: scale(1.05) translateY(-6px);
+    }
+    
+    /* Footer wraps */
+    .footer-grid {
+        flex-direction: column;
+        gap: 2.4rem;
+        text-align: center;
+    }
+    
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+/* --------------------------------------------------
+   5. Landscape / Portrait Phones (max-width: 480px)
+   -------------------------------------------------- */
+@media only screen and (max-width: 480px) {
+    section {
+        padding: 6.4rem 0;
+    }
+    
+    h2 {
+        font-size: 3rem;
+    }
+    
+    .long-copy {
+        width: 100%;
+        font-size: 1.8rem;
+        margin-bottom: 4rem;
+    }
+    
+    /* Single columns for everything */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .meals-carousel-row::before,
+    .meals-carousel-row::after {
+        width: 4rem;
+    }
+    
+    .meals-carousel-track .meal-photo {
+        width: 25rem;
+    }
+    
+    .cities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-text-box h1 {
+        font-size: 3.8rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    
+    .hero-buttons .btn {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .form-container {
+        padding: 2.4rem;
+    }
+    
+    .floating-badge {
+        display: none !important;
+    }
+
+    .steps-content-box {
+        padding-left: 0;
+    }
+    
+    .steps-content-box::before {
+        left: 5.1rem; /* Center badge align: card-padding(2.4rem) + half-badge(2.7rem) */
+        height: calc(100% - 15.6rem);
+    }
+
+    .btn-app-container {
+        justify-content: center;
+        padding-left: 0;
+    }
+    
+    .work-step-card {
+        gap: 1.6rem;
+    }
+}
+
+/* --------------------------------------------------
+   6. Micro Screen Optimizations (320px to 375px)
+   -------------------------------------------------- */
+@media only screen and (max-width: 375px) {
+    html {
+        font-size: 45%; /* 7.2px base for ultra-small devices */
+    }
+    
+    .row {
+        padding: 0 2rem;
+    }
+    
+    .hero-text-box {
+        margin-left: 2rem;
+    }
+    
+    .featured-badge {
+        padding: 0.4rem 3rem;
+        font-size: 1rem;
+    }
+}

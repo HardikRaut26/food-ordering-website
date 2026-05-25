@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnifood &mdash; Premium Healthy Food Delivery Service</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Omnifood is a premium healthy food delivery subscription service. Get organic, fresh, and chef-cooked meals delivered to your door 365 days a year.">
+    <meta name="keywords" content="food delivery, healthy food, organic meals, custom meal plans, omnifood">
+    <meta name="author" content="Omnifood">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendors/css/normalize.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/queries.css">
+</head>
+
+<body>
+    <!-- HEADER & STICKY NAVIGATION -->
+    <header id="home">
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Typographic SVG-styled Logo -->
+                <a href="#home" class="logo-link">
+                    <div class="logo-box">
+                        <ion-icon class="logo-icon" name="leaf"></ion-icon>
+                        <span class="logo-text">Omni<span>food</span></span>
+                    </div>
+                </a>
+
+                <!-- Main Navigation Links -->
+                <ul class="main-nav" id="primary-navigation">
+                    <li><a href="#features">Food Delivery</a></li>
+                    <li><a href="#hit">How It Works</a></li>
+                    <li><a href="#city">Our Cities</a></li>
+                    <li><a href="#plans">Pricing</a></li>
+                    <li><a href="#signup" class="nav-cta">Sign Up</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button Toggle -->
+                <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation menu">
+                    <ion-icon name="menu-outline" class="menu-icon-open"></ion-icon>
+                    <ion-icon name="close-outline" class="menu-icon-close"></ion-icon>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Section Box -->
+        <div class="hero-text-box">
+            <div class="hero-tag"><span>🌟 Premium Food Subscription</span></div>
+            <h1>Goodbye junk food.<br>Hello super healthy meals.</h1>
+            <div class="hero-buttons">
+                <a class="btn btn-full" href="#plans">I'm hungry</a>
+                <a class="btn btn-ghost" href="#features">Show me more</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION FEATURES -->
+    <section class="section-features" id="features">
+        <div class="row" data-aos="fade-up" data-aos-duration="800">
+            <h2>Get food fast &mdash; Not fast food</h2>
+            <p class="long-copy">Hello, we're Omnifood, your new premium food delivery service. We know you're always busy. No time for cooking. So let us take care of that, we're really good at it, we promise!</p>
+        </div>
+
+        <div class="row features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
+                <div class="icon-wrapper">
+                    <ion-icon class="iconbig" name="infinite-outline"></ion-icon>
+                </div>
+                <h3>Up to 365 days/year</h3>
+                <p>Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that's your style.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                <div class="icon-wrapper">
+                    <ion-icon class="iconbig" name="alarm-outline"></ion-icon>
+                </div>
+                <h3>Ready in 20 minutes</h3>
+                <p>You're only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you're 100% happy.</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                <div class="icon-wrapper">
+                    <ion-icon class="iconbig" name="fast-food-outline"></ion-icon>
+                </div>
+                <h3>100% organic &amp; local</h3>
+                <p>All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics. Good for your health, the environment, and it also tastes better!</p>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="icon-wrapper">
+                    <ion-icon class="iconbig" name="cart-outline"></ion-icon>
+                </div>
+                <h3>Order anything</h3>
+                <p>We don't limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It's up to you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION MEAL SHOWCASE -->
+    <section class="meal-section" id="meals">
+        <div class="row" data-aos="fade-up" data-aos-duration="800">
+            <h2>Our signature healthy meals</h2>
+            <p class="long-copy">A sneak peek at some of our popular chef-crafted organic recipes available in our weekly subscription rotation.</p>
+        </div>
+        <div class="meals-carousel-container" data-aos="fade-in" data-aos-duration="1000">
+            <!-- Row 1: Slides Left (opposite to Row 2) -->
+            <div class="meals-carousel-row carousel-row-left">
+                <div class="meals-carousel-track">
+                    <!-- Set 1 -->
+                    <figure class="meal-photo">
+                        <img src="resources/img/9.jpg" alt="Korean bibimbap meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Healthy</span>
+                            <h4>Korean Bibimbap</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo">
+                        <img src="resources/img/2.jpg" alt="Fresh salad bowl meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Vegan</span>
+                            <h4>Summer Garden Salad</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo">
+                        <img src="resources/img/3.jpg" alt="Salmon salad meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Keto</span>
+                            <h4>Glazed Salmon Salad</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo">
+                        <img src="resources/img/4.jpg" alt="Tomato beef stew meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Protein</span>
+                            <h4>Slow Cooked Beef Stew</h4>
+                        </div>
+                    </figure>
+                    
+                    <!-- Duplicate Set 1 for Infinite Scroll -->
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/9.jpg" alt="Korean bibimbap meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Healthy</span>
+                            <h4>Korean Bibimbap</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/2.jpg" alt="Fresh salad bowl meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Vegan</span>
+                            <h4>Summer Garden Salad</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/3.jpg" alt="Salmon salad meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Keto</span>
+                            <h4>Glazed Salmon Salad</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/4.jpg" alt="Tomato beef stew meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Protein</span>
+                            <h4>Slow Cooked Beef Stew</h4>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Row 2: Slides Right (opposite to Row 1) -->
+            <div class="meals-carousel-row carousel-row-right">
+                <div class="meals-carousel-track">
+                    <!-- Set 2 -->
+                    <figure class="meal-photo">
+                        <img src="resources/img/5.jpg" alt="Tofu stir fry meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Vegan</span>
+                            <h4>Sesame Ginger Tofu</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo">
+                        <img src="resources/img/6.jpg" alt="Chicken breast meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Fitness</span>
+                            <h4>Grilled Herb Chicken</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo">
+                        <img src="resources/img/7.jpg" alt="Avocado toast meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Breakfast</span>
+                            <h4>Poached Egg Toast</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo">
+                        <img src="resources/img/8.jpg" alt="Dessert fruit salad">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Dessert</span>
+                            <h4>Berries &amp; Yogurt Bowl</h4>
+                        </div>
+                    </figure>
+                    
+                    <!-- Duplicate Set 2 for Infinite Scroll -->
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/5.jpg" alt="Tofu stir fry meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Vegan</span>
+                            <h4>Sesame Ginger Tofu</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/6.jpg" alt="Chicken breast meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Fitness</span>
+                            <h4>Grilled Herb Chicken</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/7.jpg" alt="Avocado toast meal">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Breakfast</span>
+                            <h4>Poached Egg Toast</h4>
+                        </div>
+                    </figure>
+                    <figure class="meal-photo" aria-hidden="true">
+                        <img src="resources/img/8.jpg" alt="Dessert fruit salad">
+                        <div class="meal-overlay">
+                            <span class="meal-tag">Dessert</span>
+                            <h4>Berries &amp; Yogurt Bowl</h4>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION STEPS (HOW IT WORKS) -->
+    <section class="section-steps" id="hit">
+        <div class="row" data-aos="fade-up" data-aos-duration="800">
+            <h2>How it works &mdash; Simple as 1, 2, 3</h2>
+        </div>
+
+        <div class="row steps-grid">
+            <!-- Left Side: App Mockup -->
+            <div class="steps-image-box" data-aos="fade-right" data-aos-duration="1000">
+                <div class="phone-container">
+                    <img class="app-screen" src="resources/img/foodmobile.png" alt="Omnifood App Screenshot on iPhone">
+                    
+                    <!-- Floating UI Badge 1: Top Left (Order Status) -->
+                    <div class="floating-badge badge-order-status" data-aos="zoom-in" data-aos-delay="200">
+                        <ion-icon class="badge-icon" name="checkmark-circle"></ion-icon>
+                        <div class="badge-info">
+                            <h5>Order Placed</h5>
+                            <p>Ready in 20 min</p>
+                        </div>
+                    </div>
+
+                    <!-- Floating UI Badge 2: Top Right (Rating) -->
+                    <div class="floating-badge badge-rating" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="badge-stars">
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                            <ion-icon name="star"></ion-icon>
+                        </div>
+                        <p>5.0 Rating (12k+ reviews)</p>
+                    </div>
+
+                    <!-- Floating UI Badge 3: Bottom Left (Delivery Alert) -->
+                    <div class="floating-badge badge-delivery" data-aos="zoom-in" data-aos-delay="600">
+                        <ion-icon class="badge-icon badge-icon-green" name="bicycle"></ion-icon>
+                        <div class="badge-info">
+                            <h5>On The Way</h5>
+                            <p>Arriving in 5 mins</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Step Explanations -->
+            <div class="steps-content-box" data-aos="fade-left" data-aos-duration="1000">
+                <div class="work-step-card">
+                    <div class="step-badge">1</div>
+                    <div class="step-text">
+                        <h4>Choose your subscription</h4>
+                        <p>Select the plan that fits your lifestyle best and complete your sign up today. Cancel or modify anytime!</p>
+                    </div>
+                </div>
+                <div class="work-step-card">
+                    <div class="step-badge">2</div>
+                    <div class="step-text">
+                        <h4>Order your daily meals</h4>
+                        <p>Choose from our delicious premium chef-curated meals everyday using our mobile app or web portal.</p>
+                    </div>
+                </div>
+                <div class="work-step-card">
+                    <div class="step-badge">3</div>
+                    <div class="step-text">
+                        <h4>Enjoy fresh hot delivery</h4>
+                        <p>Sit back and relax! Your delicious healthy meal will be cooked fresh and delivered to your doorstep in 20 minutes.</p>
+                    </div>
+                </div>
+
+                <div class="btn-app-container">
+                    <a href="#" class="btn-app"><img src="resources/img/appstore.png" alt="Download on App Store"></a>
+                    <a href="#" class="btn-app"><img src="resources/img/playstore.png" alt="Download on Play Store"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CITIES -->
+    <section class="our-cities" id="city">
+        <div class="row" data-aos="fade-up" data-aos-duration="800">
+            <h2>We're currently in these cities</h2>
+        </div>
+        
+        <div class="row cities-grid">
+            <!-- City 1 -->
+            <div class="city-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
+                <div class="city-img-wrapper">
+                    <img src="resources/img/mumbai.jpg" alt="Mumbai cityscape">
+                </div>
+                <div class="city-details">
+                    <h3>Mumbai</h3>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="person-circle-outline"></ion-icon>
+                        <span>1600+ Happy Eaters</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="body-outline"></ion-icon>
+                        <span>50+ Top Chefs</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="logo-twitter"></ion-icon>
+                        <a href="#">@omnifoods_mumbai</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- City 2 -->
+            <div class="city-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                <div class="city-img-wrapper">
+                    <img src="resources/img/delhhi.jpg" alt="Delhi cityscape">
+                </div>
+                <div class="city-details">
+                    <h3>Delhi</h3>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="person-circle-outline"></ion-icon>
+                        <span>1400+ Happy Eaters</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="body-outline"></ion-icon>
+                        <span>45+ Top Chefs</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="logo-twitter"></ion-icon>
+                        <a href="#">@omnifoods_delhi</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- City 3 -->
+            <div class="city-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                <div class="city-img-wrapper">
+                    <img src="resources/img/ahamdabad.jpg" alt="Ahmedabad cityscape">
+                </div>
+                <div class="city-details">
+                    <h3>Ahmedabad</h3>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="person-circle-outline"></ion-icon>
+                        <span>1600+ Happy Eaters</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="body-outline"></ion-icon>
+                        <span>50+ Top Chefs</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="logo-twitter"></ion-icon>
+                        <a href="#">@omnifoods_ahmedabad</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- City 4 -->
+            <div class="city-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+                <div class="city-img-wrapper">
+                    <img src="resources/img/goa.jpg" alt="Goa cityscape">
+                </div>
+                <div class="city-details">
+                    <h3>Goa</h3>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="person-circle-outline"></ion-icon>
+                        <span>1600+ Happy Eaters</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="body-outline"></ion-icon>
+                        <span>50+ Top Chefs</span>
+                    </div>
+                    <div class="city-feature">
+                        <ion-icon class="icon-small" name="logo-twitter"></ion-icon>
+                        <a href="#">@omnifoods_goa</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION TESTIMONIALS -->
+    <section class="section-testimonials">
+        <div class="row" data-aos="fade-up" data-aos-duration="800">
+            <h2>Our customers can't live without us</h2>
+        </div>
+        
+        <div class="row testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="0" data-aos-duration="800">
+                <ion-icon name="quote" class="quote-icon"></ion-icon>
+                <blockquote>
+                    I’ve been coming to this food shop for months now. The meals are consistently delicious, the ingredients always fresh, and the staff incredibly kind. It’s my go-to place for a quick bite or a relaxing lunch.
+                </blockquote>
+                <cite>
+                    <img src="resources/img/customer1.jpg" alt="Hardik Raut Portrait">
+                    <div class="cite-meta">
+                        <strong>Hardik Raut</strong>
+                        <span>Subscriber since 2024</span>
+                    </div>
+                </cite>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="800">
+                <ion-icon name="quote" class="quote-icon"></ion-icon>
+                <blockquote>
+                    I’ve been coming to this food shop for months now. The meals are consistently delicious, the ingredients always fresh, and the staff incredibly kind. It’s my go-to place for a quick bite or a relaxing lunch.
+                </blockquote>
+                <cite>
+                    <img src="resources/img/customer2.jpg" alt="John Doe Portrait">
+                    <div class="cite-meta">
+                        <strong>John Doe</strong>
+                        <span>Subscriber since 2025</span>
+                    </div>
+                </cite>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
+                <ion-icon name="quote" class="quote-icon"></ion-icon>
+                <blockquote>
+                    I’ve been coming to this food shop for months now. The meals are consistently delicious, the ingredients always fresh, and the staff incredibly kind. It’s my go-to place for a quick bite or a relaxing lunch.
+                </blockquote>
+                <cite>
+                    <img src="resources/img/customer3.jpg" alt="Jin Charlie Portrait">
+                    <div class="cite-meta">
+                        <strong>Jin Charlie</strong>
+                        <span>Subscriber since 2023</span>
+                    </div>
+                </cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PRICING PLANS -->
+    <section class="section-plans" id="plans">
+        <div class="row" data-aos="fade-up" data-aos-duration="800">
+            <h2>Start eating healthy today</h2>
+        </div>
+        
+        <div class="row plans-grid">
+            <!-- Plan 1 -->
+            <div class="plan-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
+                <div class="plan-header">
+                    <h3>Starter</h3>
+                    <p class="plan-price">$19 <span>/ meal</span></p>
+                    <p class="price-meal">&nbsp;</p>
+                </div>
+                <div class="plan-body">
+                    <ul>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>1 meal in a month</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Order 24/7</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Access to newest creations</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Free delivery</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <a href="#signup" class="btn btn-ghost">Sign Up</a>
+                </div>
+            </div>
+
+            <!-- Plan 2: Featured Plan -->
+            <div class="plan-card plan-card--featured" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
+                <div class="featured-badge">Best Value</div>
+                <div class="plan-header">
+                    <h3>Gold</h3>
+                    <p class="plan-price">$199 <span>/ month</span></p>
+                    <p class="price-meal">That's only $10.90 per meal</p>
+                </div>
+                <div class="plan-body">
+                    <ul>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>1 meal in 5 days</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Order 24/7</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Access to newest creations</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Free delivery</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <a href="#signup" class="btn btn-full">Sign Up Now</a>
+                </div>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="plan-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
+                <div class="plan-header">
+                    <h3>Premium</h3>
+                    <p class="plan-price">$399 <span>/ month</span></p>
+                    <p class="price-meal">That's only $13.90 per meal</p>
+                </div>
+                <div class="plan-body">
+                    <ul>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>1 meal everyday</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Order 24/7</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Access to newest creations</li>
+                        <li><ion-icon class="icon-small-check" name="checkmark-circle"></ion-icon>Free delivery</li>
+                    </ul>
+                </div>
+                <div class="plan-footer">
+                    <a href="#signup" class="btn btn-ghost">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT FORM -->
+    <section class="section-form" id="signup">
+        <div class="row" data-aos="fade-up" data-aos-duration="800">
+            <h2>We're happy to hear from you</h2>
+        </div>
+        
+        <div class="row" data-aos="fade-up" data-aos-duration="1000">
+            <div class="form-container">
+                <form action="#" method="POST" class="contact-form" id="contact-form-element">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="find-us">How did you find us?</label>
+                        <select name="find-us" id="find-us">
+                            <option value="friends">Friends</option>
+                            <option value="search">Search</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label for="news">Newsletter?</label>
+                        <div class="checkbox-wrapper">
+                            <input type="checkbox" name="news" id="news" checked>
+                            <span>Yes, sign me up for healthy meal tips!</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback">Drop us a line</label>
+                        <textarea name="feedback" id="feedback" cols="30" rows="5" placeholder="Your message..."></textarea>
+                    </div>
+                    <div class="form-group button-group">
+                        <input type="submit" name="send-us" id="send-us" value="Send Message">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="row footer-grid">
+            <div class="foot-sec">
+                <ul class="footer-nav">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">iOS App</a></li>
+                    <li><a href="#">Android App</a></li>
+                </ul>
+            </div>
+            <div class="foot-sec">
+                <ul class="social-links">
+                    <li><a href="#" aria-label="Facebook"><ion-icon class="fb" name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#" aria-label="Twitter"><ion-icon class="twitter" name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="#" aria-label="Instagram"><ion-icon class="insta" name="logo-instagram"></ion-icon></a></li>
+                    <li><a href="#" aria-label="Google"><ion-icon class="google" name="logo-google"></ion-icon></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row copyright-row">
+            <p>Copyright &copy; 2026 by Omnifood. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Ion Icons & AOS Scripts -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 150,
+            duration: 1000,
+            easing: 'cubic-bezier(0.16, 1, 0.3, 1)', // Smooth Apple-style ease-out curve
+            delay: 50
+        });
+    </script>
+    
+    <!-- Custom JS Helper -->
+    <script src="resources/js/main.js"></script>
+</body>
+
+</html>
