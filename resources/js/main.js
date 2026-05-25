@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Auto sliding functionality
+        // Auto sliding functionality (2 seconds rotation)
         const startAutoSlide = () => {
             stopAutoSlide();
             slideInterval = setInterval(() => {
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     goToSlide(currentIdx + 1);
                 }
-            }, 3000);
+            }, 2000);
         };
         
         const stopAutoSlide = () => {
@@ -194,9 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startAutoSlide();
         };
         
-        // Pause auto-sliding on hover
-        featuresContainer.addEventListener('mouseenter', stopAutoSlide);
-        featuresContainer.addEventListener('mouseleave', startAutoSlide);
+        // Continuous auto-play (no hover pause)
         
         // Recalculate slider alignment on window resize
         let resizeTimeout;
@@ -310,12 +308,12 @@ document.addEventListener('DOMContentLoaded', () => {
             resetCityAutoSlide();
         });
         
-        // Auto sliding functionality (3 seconds rotation with infinite loop)
+        // Auto sliding functionality (2 seconds rotation with infinite loop)
         const startCityAutoSlide = () => {
             stopCityAutoSlide();
             cityInterval = setInterval(() => {
                 goToCitySlide(cityIdx + 1);
-            }, 3000);
+            }, 2000);
         };
         
         const stopCityAutoSlide = () => {
@@ -329,9 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startCityAutoSlide();
         };
         
-        // Pause auto-sliding on hover
-        citiesContainer.addEventListener('mouseenter', stopCityAutoSlide);
-        citiesContainer.addEventListener('mouseleave', startCityAutoSlide);
+        // Continuous auto-play (no hover pause)
         
         // Recalculate slider alignment on window resize
         let cityResizeTimeout;
@@ -352,5 +348,138 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCityDots();
         goToCitySlide(0);
         startCityAutoSlide();
+    }
+
+    // ----------------------------------------------------
+    // Testimonials Section Carousel
+    // ----------------------------------------------------
+    const testimonialsContainer = document.querySelector('.testimonials-carousel-container');
+    const testimonialsGrid = document.querySelector('.testimonials-grid');
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const testimonialsPrevBtn = document.querySelector('.testimonials-carousel-btn.prev-btn');
+    const testimonialsNextBtn = document.querySelector('.testimonials-carousel-btn.next-btn');
+    const testimonialsDotsContainer = document.querySelector('.testimonials-carousel-dots');
+    
+    if (testimonialsGrid && testimonialCards.length > 0 && testimonialsPrevBtn && testimonialsNextBtn && testimonialsDotsContainer) {
+        let testIdx = 0;
+        let testInterval = null;
+        
+        // Helper to get active visible cards from CSS Variable
+        const getVisibleTestimonialsCount = () => {
+            return parseInt(getComputedStyle(testimonialsGrid).getPropertyValue('--visible-testimonials')) || 3;
+        };
+        
+        // Helper to get max index
+        const getMaxTestIdx = () => {
+            return Math.max(0, testimonialCards.length - getVisibleTestimonialsCount());
+        };
+        
+        // Render pagination dots dynamically
+        const renderTestDots = () => {
+            testimonialsDotsContainer.innerHTML = '';
+            const maxIdx = getMaxTestIdx();
+            const totalDots = maxIdx + 1;
+            
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('span');
+                dot.classList.add('dot');
+                if (i === testIdx) dot.classList.add('active');
+                dot.setAttribute('data-slide', i);
+                
+                dot.addEventListener('click', () => {
+                    goToTestSlide(i);
+                    resetTestAutoSlide();
+                });
+                
+                testimonialsDotsContainer.appendChild(dot);
+            }
+        };
+        
+        // Go to specific slide index
+        const goToTestSlide = (idx) => {
+            const maxIdx = getMaxTestIdx();
+            
+            // Allow wrapping around infinitely
+            if (idx < 0) {
+                testIdx = maxIdx;
+            } else if (idx > maxIdx) {
+                testIdx = 0;
+            } else {
+                testIdx = idx;
+            }
+            
+            // Calculate translation width
+            const cardWidth = testimonialCards[0].getBoundingClientRect().width;
+            const gap = parseFloat(getComputedStyle(testimonialsGrid).gap) || 32;
+            const translateOffset = testIdx * (cardWidth + gap);
+            
+            testimonialsGrid.style.transform = `translateX(-${translateOffset}px)`;
+            
+            // Update active dot
+            const dots = testimonialsDotsContainer.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                if (index === testIdx) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+            
+            // In a truly infinite loop carousel, next/prev buttons are never disabled
+            testimonialsPrevBtn.disabled = false;
+            testimonialsNextBtn.disabled = false;
+        };
+        
+        // Event Listeners for Nav buttons
+        testimonialsPrevBtn.addEventListener('click', () => {
+            goToTestSlide(testIdx - 1);
+            resetTestAutoSlide();
+        });
+        
+        testimonialsNextBtn.addEventListener('click', () => {
+            goToTestSlide(testIdx + 1);
+            resetTestAutoSlide();
+        });
+        
+        // Auto sliding functionality (2 seconds rotation with infinite loop)
+        const startTestAutoSlide = () => {
+            stopTestAutoSlide();
+            testInterval = setInterval(() => {
+                goToTestSlide(testIdx + 1);
+            }, 2000);
+        };
+        
+        const stopTestAutoSlide = () => {
+            if (testInterval) {
+                clearInterval(testInterval);
+                testInterval = null;
+            }
+        };
+        
+        const resetTestAutoSlide = () => {
+            startTestAutoSlide();
+        };
+        
+        // Continuous auto-play (no hover pause)
+        
+        // Recalculate slider alignment on window resize
+        let testResizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(testResizeTimeout);
+            testResizeTimeout = setTimeout(() => {
+                // Adjust index if out of bounds on resize
+                const maxIdx = getMaxTestIdx();
+                if (testIdx > maxIdx) {
+                    testIdx = maxIdx;
+                }
+                renderTestDots();
+                goToTestSlide(testIdx);
+            }, 100);
+        });
+        
+        // Initialize
+        renderTestDots();
+        goToTestSlide(0);
+        startTestAutoSlide();
     }
 });
