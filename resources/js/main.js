@@ -522,4 +522,29 @@ document.addEventListener('DOMContentLoaded', () => {
         billingMonthly.addEventListener('click', () => setBillingCycle(false));
         billingYearly.addEventListener('click', () => setBillingCycle(true));
     }
+
+    // ----------------------------------------------------
+    // Image Skeleton Loading Effect
+    // ----------------------------------------------------
+    const skeletonImages = document.querySelectorAll('.meal-photo img, .city-img-wrapper img, .avatar-container img, .app-screen');
+    skeletonImages.forEach(img => {
+        const wrapper = img.closest('.meal-photo, .city-img-wrapper, .avatar-container, .phone-container');
+        if (!wrapper) return;
+
+        // Apply loading class to the parent wrapper
+        wrapper.classList.add('skeleton-loader');
+
+        const handleLoad = () => {
+            img.classList.add('loaded');
+            wrapper.classList.remove('skeleton-loader');
+        };
+
+        // If image is already loaded from cache
+        if (img.complete) {
+            handleLoad();
+        } else {
+            img.addEventListener('load', handleLoad);
+            img.addEventListener('error', handleLoad); // Remove skeleton even if image fails
+        }
+    });
 });

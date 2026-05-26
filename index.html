@@ -23,9 +23,201 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="resources/css/style.css">
     <link rel="stylesheet" href="resources/css/queries.css">
+
+    <!-- Inline Skeleton Preloader Styles (Instant Paint) -->
+    <style>
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0f172a;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3.2rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        @keyframes skPulse {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .sk-anim {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.03) 75%);
+            background-size: 200% 100%;
+            animation: skPulse 1.5s infinite linear;
+            border-radius: 8px;
+        }
+
+        .preloader-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2.4rem 3.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .preloader-logo {
+            width: 140px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .preloader-nav {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .preloader-nav-item {
+            width: 80px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .preloader-hero {
+            max-width: 80rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+            margin-top: 8rem;
+        }
+
+        .preloader-tag {
+            width: 180px;
+            height: 30px;
+            border-radius: 20px;
+        }
+
+        .preloader-title {
+            width: 90%;
+            height: 56px;
+            border-radius: 8px;
+        }
+
+        .preloader-title-2 {
+            width: 70%;
+            height: 56px;
+            border-radius: 8px;
+        }
+
+        .preloader-buttons {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.6rem;
+        }
+
+        .preloader-button {
+            width: 160px;
+            height: 50px;
+            border-radius: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .preloader-nav {
+                display: none;
+            }
+            .preloader-logo {
+                width: 100px;
+                height: 28px;
+            }
+            .preloader-title {
+                height: 40px;
+                width: 100%;
+            }
+            .preloader-title-2 {
+                height: 40px;
+                width: 80%;
+            }
+            .preloader-button {
+                width: 100%;
+            }
+            .preloader-buttons {
+                flex-direction: column;
+                gap: 1.2rem;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <!-- FULL SCREEN SKELETON PRELOADER -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-header">
+                <div class="preloader-logo sk-anim"></div>
+                <div class="preloader-nav">
+                    <div class="preloader-nav-item sk-anim"></div>
+                    <div class="preloader-nav-item sk-anim"></div>
+                    <div class="preloader-nav-item sk-anim"></div>
+                    <div class="preloader-nav-item sk-anim"></div>
+                </div>
+            </div>
+            <div class="preloader-hero">
+                <div class="preloader-tag sk-anim"></div>
+                <div class="preloader-title sk-anim"></div>
+                <div class="preloader-title-2 sk-anim"></div>
+                <div class="preloader-buttons">
+                    <div class="preloader-button sk-anim"></div>
+                    <div class="preloader-button sk-anim"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dismiss preloader quickly and safely -->
+    <script>
+        (function() {
+            var preloaderDismissed = false;
+            function dismissPreloader() {
+                if (preloaderDismissed) return;
+                preloaderDismissed = true;
+                var preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.add('fade-out');
+                    setTimeout(function() {
+                        if (preloader.parentNode) {
+                            preloader.parentNode.removeChild(preloader);
+                        }
+                    }, 400);
+                }
+            }
+            window.addEventListener('load', dismissPreloader);
+            // Safety timeout (3s) to prevent infinite loaders if assets are blocked/slow
+            setTimeout(dismissPreloader, 3000);
+        })();
+    </script>
     <!-- HEADER & STICKY NAVIGATION -->
     <header id="home">
         <nav class="navbar">
